@@ -1,6 +1,8 @@
 En esta carpeta se encuentra el script con las queries para obtener la información solicitada y los screenshots de las respuestas. E igualmente en este readme se 
 encuentran las respuestas 
 
+
+### Nota: Se usó el motor de Oracle SQL para correr las queries
 ## Respuestas
 
 ### Pregunta 1
