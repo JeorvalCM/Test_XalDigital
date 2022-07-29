@@ -77,6 +77,8 @@ number_contested = info_df[info_df.answer_count > 0].shape[0]
 view_count, link, _id = info_df[info_df['view_count'] == info_df['view_count'].min()][['view_count', 'link', 'id']].values.tolist()[0]
 
 # 4. Obtener la respuesta más vieja y más actual
+#cambiar el formato de la fecha de segundos a una fecha humananmente entendible
+info_df['creation_date'] = pd.to_datetime(info_df['creation_date'], unit = 's')
 
 #obteniendo la respuesta mas vieja y mas actual y escogiendo las columnas que quiere obtener la información
 min_date, link_min, id_min =  info_df[info_df['creation_date'] == info_df['creation_date'].min()][['creation_date', 'link', 'id']].values.tolist()[0]
@@ -101,9 +103,7 @@ print('-------------------------------------------------------------------------
 print('La respuesta con menor número de visitas tiene id: {}\nEs del link: {}\nTiene: {} visitas'.format(_id, link, view_count))
 print('----------------------------------------------------------------------------------------------------------------------------------------\n\n\n')
 
-print('La respuesta más vieja tiene id: {}\nEs del link: {}\nTiene: {} visitas'.format(id_min, link_min, min_date))
-print('----------------------------------------------------------------------------------------------------------------------------------------\n\n\n')
-
+print('La respuesta más vieja tiene id: {}\nEs del link: {}\nTiene: {} visitas\n'.format(id_min, link_min, min_date))
 print('La respuesta más actual tiene id: {}\nEs del link: {}\nTiene: {} visitas'.format(id_max, link_max, max_date))
 print('----------------------------------------------------------------------------------------------------------------------------------------\n\n\n')
 
